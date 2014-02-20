@@ -1,0 +1,16 @@
+{
+  "name": "expressNextRoute",
+  "version": "0.0.0",
+  "description": "example of next route in express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Max Beatty",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~3.4.2",
+    "express-namespace": "git://github.com/maxbeatty/express-namespace.git"
+  }
+}
