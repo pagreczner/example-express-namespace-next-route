@@ -15,7 +15,17 @@ app.configure(function() {
   });
 });
 
+a = function(req, res, next) {
+  console.log("Here A");
+  next()
+};
+
+a2 = function(req, res, next) {
+  console.log("A22");
+  next();
+};
 b = function(req, res, next) {
+  console.log("B");
   next('route');
 };
 
@@ -24,8 +34,15 @@ c = function(req, res, next) {
   res.send(500);
 };
 
-app.namespace('/me', function() {
+app.namespace('/me', a, a2, function() {
   app.get('/:id', b, c);
 });
 
-http.createServer(app).listen(3000);
+app.namespace('/dog', a, function() {
+  app.namespace('/cat', a2, function() {
+    app.get('/:id', b, c);
+  });
+});
+
+http.createServer(app).listen(3860);
+console.log("STARTING_____________");
